@@ -10,6 +10,7 @@ namespace HPlusEcommerce_Web
         {
             filters.Add(new HandleErrorAttribute());
             filters.Add(new LogRequestFilter());
+            filters.Add(new CustomExceptionHandler());
         }
     }
 }
