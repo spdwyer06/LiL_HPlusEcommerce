@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HPlusEcommerce_Web.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -26,6 +27,16 @@ namespace HPlusEcommerce_Web.Controllers
         [Route("product/{productName}")]
         public ActionResult Detail(string productName)
         {
+            ViewBag.Product = new Product
+            {
+                Name = "Women's Winter Jacket",
+                FullPrice = 20.00m,
+                CurrentPrice = 16.00m,
+                PercentOff = 20,
+                ImagePath = "/Content/Images/Products/1.jpg",
+                StarRating = 4
+            };
+
             return View();
         }
     }

@@ -25,17 +25,25 @@
                     <span class="product-discount-label">20%</span>
                 </div>
                 <ul class="rating">
-                    <li class="fa fa-star"></li>
-                    <li class="fa fa-star"></li>
-                    <li class="fa fa-star"></li>
-                    <li class="fa fa-star"></li>
-                    <li class="fa fa-star disable"></li>
+                    @*<li class="fa fa-star"></li>
+                        <li class="fa fa-star"></li>
+                        <li class="fa fa-star"></li>
+                        <li class="fa fa-star"></li>
+                        <li class="fa fa-star disable"></li>*@
+                    @for (var i = 1; i <= ViewBag.Product.StarRating; i++)
+                    {
+                        <li class='fa fa-star'></li>
+                    }
+                    @for (var i = ViewBag.Product.StarRating; i < 5; i++)
+                    {
+                        <li class='fa fa-star disable'></li>
+                    }
                 </ul>
                 <div class="product-content">
-                    <h3 class="title"><a href="#">Women's Blouse</a></h3>
+                    <h3 class="title"><a href="#">@ViewBag.Product.Name</a></h3>
                     <div class="price">
-                        $16.00
-                        <span>$20.00</span>
+                        @ViewBag.Product.CurrentPrice
+                        <span>@ViewBag.Product.FullPrice</span>
                     </div>
                     <a class="add-to-cart" href="">+ Add To Cart</a>
                 </div>
@@ -45,7 +53,7 @@
             <div class="product-grid">
                 <div class="product-image">
                     <a href="#">
-                        <img src="~/Content/Images/Products/2.jpg">
+                        <img src="@ViewBag.Product.ImagePath">
                     </a>
                     <ul class="social">
                         <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
