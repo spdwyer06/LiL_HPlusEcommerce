@@ -22,5 +22,11 @@ namespace HPlusEcommerce_Web.Controllers
             // Give the exact file path
             //return View("~/Views/Product/Index.cshtml");
         }
+
+        [Route("product/{productName}")]
+        public ActionResult Detail(string productName)
+        {
+            return View();
+        }
     }
 }
