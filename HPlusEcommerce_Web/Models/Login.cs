@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HPlusEcommerce_Web.Validation;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace HPlusEcommerce_Web.Models
 
         [Required]
         [MinLength(8, ErrorMessage = "Password must be at least 8 characters long")]
+        [CommonPasswords(ErrorMessage = "This password is too common.")]
         public string Password { get; set; }
     }
 }

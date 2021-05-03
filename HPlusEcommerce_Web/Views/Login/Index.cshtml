@@ -17,15 +17,18 @@
         @*@if (IsPost)*@
         if (IsPost)
         {
-            <div class='alert alert-danger'>Invalid login attempt</div>
+            @*<div class='alert alert-danger'>Invalid login attempt</div>*@
+            <div class='alert alert-danger'>@Html.ValidationSummary()</div>
         }
         <h2 class="form-signin-heading">Please sign in</h2>
         @*<label for="username" class="sr-only">Email address</label>*@
         @Html.LabelFor(u => u.Username, "Email address", new { @class = "control-label" })
         @Html.TextBoxFor(u => u.Username, new { @class = "form-control", placeholder = "Email address", autofocus = "" })
         @*<input id="username" name="username" class="form-control" placeholder="Email address" autofocus="" value='@(Model.Username ?? "")'>*@
+        @Html.ValidationMessageFor(model => model.Username)
         <label for="password" class="sr-only">Password</label>
         <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+        @Html.ValidationMessageFor(model => model.Password)
         <div class="checkbox">
             <label>
                 <input type="checkbox" value="remember-me"> Remember me

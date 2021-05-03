@@ -19,6 +19,9 @@ namespace HPlusEcommerce_Web.Controllers
         [HttpPost]
         public ActionResult Index(Login request)
         {
+            if (!ModelState.IsValid)
+                return View(request);
+
             if (!string.IsNullOrEmpty(request.Username) && !string.IsNullOrEmpty(request.Password))
             {
                 FormsAuthentication.SetAuthCookie(request.Username, false);
